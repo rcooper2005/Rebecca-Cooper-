@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Rebecca Cooper | AI in Education Researcher & Professor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1e3a5f;
+            --color-secondary: #2d5a7b;
+            --color-accent: #d4a039;
+            --color-accent-light: #f0d078;
+            --color-sage: #4a9b7f;
+            --color-coral: #e07b5a;
+            --color-purple: #7c5295;
+            --color-teal: #2a9d8f;
+            --color-pink: #e91e8c;
+            --color-orange: #f97316;
+            --color-indigo: #6366f1;
+            --color-emerald: #10b981;
+            --color-rose: #f43f5e;
+            --color-amber: #f59e0b;
+            --color-cyan: #06b6d4;
+            --color-cream: #fdfbf7;
+            --color-warm-gray: #f5f3f0;
+            --color-text: #2c3e50;
+            --color-text-light: #5a6c7d;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            background: var(--color-cream);
+            overflow-x: hidden;
+        }
+
+        /* Colorful Decorative Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 5% 85%, rgba(233, 30, 140, 0.06) 0%, transparent 35%),
+                radial-gradient(circle at 95% 15%, rgba(249, 115, 22, 0.06) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 35%),
+                radial-gradient(circle at 20% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 35%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Animated gradient bar at top */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--color-pink), 
+                var(--color-orange), 
+                var(--color-amber), 
+                var(--color-emerald), 
+                var(--color-teal), 
+                var(--color-indigo), 
+                var(--color-purple),
+                var(--color-pink));
+            background-size: 200% 100%;
+            animation: gradientMove 8s linear infinite;
+            z-index: 10000;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 4px;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 58, 82, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--color-coral), var(--color-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-orange));
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-pink);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-primary);
+            transition: var(--transition-smooth);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(253, 251, 247, 1) 0%, rgba(255, 245, 235, 0.8) 50%, rgba(245, 250, 255, 0.8) 100%);
+        }
+
+        /* Colorful floating shapes in hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(249, 115, 22, 0.1));
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(42, 157, 143, 0.15), rgba(99, 102, 241, 0.1));
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image-container {
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            padding: 1.5rem;
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            background: linear-gradient(135deg, var(--color-pink), var(--color-orange), var(--color-teal)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            transform: translate(15px, 15px);
+            z-index: -1;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 4px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-subtitle::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-orange));
+            border-radius: 2px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            max-width: 550px;
+            line-height: 1.8;
+        }
+
+        .hero-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .credential-tag {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            color: var(--color-text);
+            border-left: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .credential-tag::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+        .credential-tag:nth-child(1)::before { background: linear-gradient(180deg, var(--color-teal), var(--color-emerald)); }
+        .credential-tag:nth-child(2)::before { background: linear-gradient(180deg, var(--color-indigo), var(--color-purple)); }
+        .credential-tag:nth-child(3)::before { background: linear-gradient(180deg, var(--color-pink), var(--color-rose)); }
+        .credential-tag:nth-child(4)::before { background: linear-gradient(180deg, var(--color-orange), var(--color-amber)); }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-pink), var(--color-coral));
+            color: white;
+            box-shadow: 0 4px 15px rgba(233, 30, 140, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 30, 140, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, var(--color-indigo), var(--color-purple));
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-pink), var(--color-orange), var(--color-amber), var(--color-teal), var(--color-indigo));
+            margin: 0 auto;
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(180deg, white 0%, rgba(255, 250, 245, 1) 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-emerald), var(--color-cyan));
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .stat-card:nth-child(1)::before { background: linear-gradient(90deg, var(--color-teal), var(--color-emerald)); }
+        .stat-card:nth-child(2)::before { background: linear-gradient(90deg, var(--color-coral), var(--color-pink)); }
+        .stat-card:nth-child(3)::before { background: linear-gradient(90deg, var(--color-indigo), var(--color-purple)); }
+        .stat-card:nth-child(4)::before { background: linear-gradient(90deg, var(--color-orange), var(--color-amber)); }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card:nth-child(1) .stat-number { background: linear-gradient(135deg, var(--color-teal), var(--color-emerald)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-card:nth-child(2) .stat-number { background: linear-gradient(135deg, var(--color-coral), var(--color-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-card:nth-child(3) .stat-number { background: linear-gradient(135deg, var(--color-indigo), var(--color-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-card:nth-child(4) .stat-number { background: linear-gradient(135deg, var(--color-orange), var(--color-amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7b 30%, #2a9d8f 70%, #4a9b7f 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        .expertise::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+            animation: pulse 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .expertise .section-label {
+            color: var(--color-accent-light);
+            -webkit-text-fill-color: var(--color-accent-light);
+        }
+
+        .expertise .section-title {
+            color: white;
+        }
+
+        .expertise .section-divider {
+            background: linear-gradient(90deg, var(--color-pink), var(--color-orange), var(--color-amber));
+        }
+
+        .expertise-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-smooth);
+        }
+
+        .expertise-card:nth-child(1)::before { background: linear-gradient(90deg, var(--color-indigo), var(--color-purple)); }
+        .expertise-card:nth-child(2)::before { background: linear-gradient(90deg, var(--color-teal), var(--color-emerald)); }
+        .expertise-card:nth-child(3)::before { background: linear-gradient(90deg, var(--color-coral), var(--color-pink)); }
+        .expertise-card:nth-child(4)::before { background: linear-gradient(90deg, var(--color-emerald), var(--color-cyan)); }
+        .expertise-card:nth-child(5)::before { background: linear-gradient(90deg, var(--color-purple), var(--color-pink)); }
+        .expertise-card:nth-child(6)::before { background: linear-gradient(90deg, var(--color-orange), var(--color-amber)); }
+
+        .expertise-card:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-8px);
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .expertise-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* AI Workshop Section */
+        .workshop {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #ec4899 50%, #f97316 75%, #f59e0b 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workshop::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* AI Resources Section */
+        .resources {
+            background: linear-gradient(180deg, #fef7f0 0%, #f0f9ff 50%, #fdf4ff 100%);
+            position: relative;
+        }
+
+        .resources::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-indigo), var(--color-purple), var(--color-pink), var(--color-coral));
+        }
+
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .resource-card:nth-child(1)::before { background: linear-gradient(90deg, var(--color-indigo), var(--color-purple)); }
+        .resource-card:nth-child(2)::before { background: linear-gradient(90deg, var(--color-purple), var(--color-pink)); }
+        .resource-card:nth-child(3)::before { background: linear-gradient(90deg, var(--color-coral), var(--color-orange)); }
+        .resource-card:nth-child(4)::before { background: linear-gradient(90deg, var(--color-teal), var(--color-emerald)); }
+        .resource-card:nth-child(5)::before { background: linear-gradient(90deg, var(--color-amber), var(--color-orange)); }
+
+        .resource-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .resource-card:nth-child(1) .resource-card-icon { background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.1)); }
+        .resource-card:nth-child(2) .resource-card-icon { background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(236,72,153,0.1)); }
+        .resource-card:nth-child(3) .resource-card-icon { background: linear-gradient(135deg, rgba(224,123,90,0.2), rgba(249,115,22,0.1)); }
+        .resource-card:nth-child(4) .resource-card-icon { background: linear-gradient(135deg, rgba(42,157,143,0.2), rgba(16,185,129,0.1)); }
+        .resource-card:nth-child(5) .resource-card-icon { background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(249,115,22,0.1)); }
+
+        .resource-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        .download-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .resource-card:nth-child(1) .download-badge { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1)); color: var(--color-indigo); }
+        .resource-card:nth-child(2) .download-badge { background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(236,72,153,0.1)); color: var(--color-purple); }
+        .resource-card:nth-child(3) .download-badge { background: linear-gradient(135deg, rgba(224,123,90,0.15), rgba(249,115,22,0.1)); color: var(--color-coral); }
+        .resource-card:nth-child(4) .download-badge { background: linear-gradient(135deg, rgba(42,157,143,0.15), rgba(16,185,129,0.1)); color: var(--color-teal); }
+        .resource-card:nth-child(5) .download-badge { background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(249,115,22,0.1)); color: var(--color-orange); }
+
+        /* Publications Section */
+        .publications {
+            background: linear-gradient(180deg, white 0%, #f8fafc 100%);
+            position: relative;
+        }
+
+        .publications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-emerald), var(--color-teal), var(--color-cyan));
+        }
+
+        .publications-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .publication-item {
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: var(--transition-smooth);
+            border-left: 4px solid transparent;
+        }
+
+        .publication-item:nth-child(1) { border-left-color: var(--color-pink); }
+        .publication-item:nth-child(2) { border-left-color: var(--color-indigo); }
+        .publication-item:nth-child(3) { border-left-color: var(--color-teal); }
+        .publication-item:nth-child(4) { border-left-color: var(--color-orange); }
+        .publication-item:nth-child(5) { border-left-color: var(--color-purple); }
+        .publication-item:nth-child(6) { border-left-color: var(--color-emerald); }
+
+        .publication-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        a.publication-item:hover .publication-title {
+            background: linear-gradient(90deg, var(--color-pink), var(--color-coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        a.publication-item::after {
+            content: '↗';
+            float: right;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: var(--transition-smooth);
+            background: linear-gradient(90deg, var(--color-pink), var(--color-coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        a.publication-item:hover::after {
+            opacity: 1;
+        }
+
+        .publication-year {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+        }
+
+        .publication-item:nth-child(1) .publication-year { background: linear-gradient(135deg, var(--color-pink), var(--color-rose)); }
+        .publication-item:nth-child(2) .publication-year { background: linear-gradient(135deg, var(--color-indigo), var(--color-purple)); }
+        .publication-item:nth-child(3) .publication-year { background: linear-gradient(135deg, var(--color-teal), var(--color-emerald)); }
+        .publication-item:nth-child(4) .publication-year { background: linear-gradient(135deg, var(--color-orange), var(--color-amber)); }
+        .publication-item:nth-child(5) .publication-year { background: linear-gradient(135deg, var(--color-purple), var(--color-pink)); }
+        .publication-item:nth-child(6) .publication-year { background: linear-gradient(135deg, var(--color-emerald), var(--color-cyan)); }
+
+        .publication-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            transition: var(--transition-smooth);
+        }
+
+        .publication-journal {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            font-style: italic;
+        }
+
+        .view-all-link {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Awards Section */
+        .awards {
+            background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 30%, #fce7f3 70%, #fdf4ff 100%);
+            position: relative;
+        }
+
+        .awards::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-amber), var(--color-orange), var(--color-pink), var(--color-purple));
+        }
+
+        .awards-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .award-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .award-card:nth-child(1) .award-icon { background: linear-gradient(135deg, var(--color-coral), var(--color-pink)); }
+        .award-card:nth-child(2) .award-icon { background: linear-gradient(135deg, var(--color-teal), var(--color-emerald)); }
+        .award-card:nth-child(3) .award-icon { background: linear-gradient(135deg, var(--color-purple), var(--color-indigo)); }
+        .award-card:nth-child(4) .award-icon { background: linear-gradient(135deg, var(--color-cyan), var(--color-teal)); }
+        .award-card:nth-child(5) .award-icon { background: linear-gradient(135deg, var(--color-amber), var(--color-orange)); }
+
+        .award-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .award-content p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* Nominations box */
+        .nominations-box {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .nominations-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .nomination-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .nomination-tag {
+            padding: 0.7rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .nomination-tag:nth-child(1) { background: linear-gradient(135deg, var(--color-coral), var(--color-pink)); }
+        .nomination-tag:nth-child(2) { background: linear-gradient(135deg, var(--color-teal), var(--color-emerald)); }
+        .nomination-tag:nth-child(3) { background: linear-gradient(135deg, var(--color-purple), var(--color-indigo)); }
+        .nomination-tag:nth-child(4) { background: linear-gradient(135deg, var(--color-amber), var(--color-orange)); }
+        .nomination-tag:nth-child(5) { background: linear-gradient(135deg, var(--color-indigo), var(--color-cyan)); }
+
+        /* Certifications Section */
+        .certifications {
+            background: linear-gradient(135deg, #1e3a5f 0%, #6366f1 30%, #8b5cf6 50%, #ec4899 70%, #f97316 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certifications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 90%, rgba(255,255,255,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(255,255,255,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .certifications .section-label {
+            color: var(--color-accent-light);
+            -webkit-text-fill-color: var(--color-accent-light);
+        }
+
+        .certifications .section-title {
+            color: white;
+        }
+
+        .certifications .section-divider {
+            background: linear-gradient(90deg, var(--color-accent-light), white, var(--color-accent-light));
+        }
+
+        .cert-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .cert-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+        }
+
+        .cert-icon {
+            width: 65px;
+            height: 65px;
+            min-width: 65px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .cert-card:nth-child(1) .cert-icon { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .cert-card:nth-child(2) .cert-icon { background: linear-gradient(135deg, #10b981, #34d399); }
+        .cert-card:nth-child(3) .cert-icon { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .cert-card:nth-child(4) .cert-icon { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .cert-card:nth-child(5) .cert-icon { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+        .cert-card:nth-child(6) .cert-icon { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+
+        .cert-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-card p {
+            opacity: 0.85;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a9d8f 40%, #7c5295 70%, #ec4899 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(249,115,22,0.15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .contact .section-label {
+            color: var(--color-accent-light);
+            -webkit-text-fill-color: var(--color-accent-light);
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-divider {
+            background: linear-gradient(90deg, var(--color-accent-light), white, var(--color-pink));
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .contact-email {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .contact-email:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0d1f2d 0%, #1e3a5f 50%, #2d5a7b 100%);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                var(--color-pink), 
+                var(--color-orange), 
+                var(--color-amber), 
+                var(--color-emerald), 
+                var(--color-teal), 
+                var(--color-indigo), 
+                var(--color-purple));
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image-container {
+                order: -1;
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-subtitle {
+                justify-content: center;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .hero-credentials {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">Dr. Rebecca <span>Cooper</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#workshop">AI Workshop</a></li>
+            <li><a href="#k12">K-12 Science</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content" style="text-align: center;">
+            <div class="hero-image-container" style="display: flex; justify-content: center;">
+                <div class="hero-image-frame">
+                    <img src="https://www.ggc.edu/sites/default/files/styles/degree_desktop/public/2025-07/2025-DR-Cooper-01-medium_680x500.jpg" alt="Dr. Rebecca Cooper" class="hero-image">
+                </div>
+            </div>
+            <div class="hero-text" style="text-align: center;">
+                <p class="hero-subtitle">Professor & AI Education Researcher</p>
+                <h1 class="hero-title" style="text-align: center;">Dr. Rebecca Ann Penwell Cooper</h1>
+                <p class="hero-description" style="text-align: center; margin-left: auto; margin-right: auto;">
+                    Director of Assessment at Georgia Gwinnett College with 22 years of higher education experience. An emerging leader in AI education research, investigating how artificial intelligence is transforming teacher preparation and the future of learning.
+                </p>
+                <div class="hero-credentials" style="justify-content: center;">
+                    <span class="credential-tag">Ph.D. Curriculum & Instruction</span>
+                    <span class="credential-tag">M.Ed. Education Biology</span>
+                    <span class="credential-tag">M.S. Biology</span>
+                </div>
+                <div class="hero-cta" style="justify-content: center;">
+                    <a href="Rebecca_Cooper_CV_2025.pdf" class="btn btn-primary" download>
+                        📄 Download CV
+                    </a>
+                    <a href="https://www.ggc.edu/about-ggc/directory/rebecca-cooper" target="_blank" class="btn btn-secondary">
+                        🏫 GGC Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <p class="section-label">Background</p>
+            <h2 class="section-title">About Dr. Cooper</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h3>Bridging Science, Education & Technology</h3>
+                <p>
+                    Dr. Cooper is a professor with backgrounds in biology, environmental science, and science education, bringing 22 years of higher education experience. Her leadership includes eight years as Chair of Assessment and Graduate Department Chair, and she currently serves as the Director of Assessment at Georgia Gwinnett College.
+                </p>
+                <p>
+                    Dr. Cooper has wide-ranging experience teaching science content, methods, and general education courses to undergraduate and graduate students, notably developing and teaching online courses for over 18 years. Beyond her instruction and supervision of field students, she provides support and training to faculty on integrating technology and online instruction.
+                </p>
+                <p>
+                    Dr. Cooper is an emerging leader in AI education research, investigating how artificial intelligence is transforming teacher preparation. Her research on pre-service teachers' perceptions of AI has gained international recognition, most recently through her presentation at the eLearn 2025 World Conference on EdTech, where she shared findings on pre-service educators' evolving perspectives on AI for professional development and learning.
+                </p>
+                <p>
+                    Her AI scholarship includes publications in Gateways examining whether pre-service teachers view AI as friend or foe, and in the Journal of Advances in Education exploring the evolution of preparing preservice teachers for the new digital classroom. To inform her research and practice, Dr. Cooper has earned multiple AI certifications, including Magic School AI Certified Educator (Levels 1-3), Magic School AI Image Generator, Writing.io Academy AI Course, and Khanmigo for Educators.
+                </p>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(233,30,140,0.08), rgba(249,115,22,0.08)); border-left: 4px solid; border-image: linear-gradient(180deg, var(--color-pink), var(--color-orange)) 1; border-radius: 0 12px 12px 0;">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; background: linear-gradient(90deg, var(--color-pink), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; font-weight: 600;">Featured In The News</p>
+                    <a href="https://www.ggc.edu/about-ggc/news/ai-in-the-classroom-ggc-professor-prepares-tomorrows-teachers" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-display); font-size: 1.2rem; color: var(--color-primary); text-decoration: none; display: block; line-height: 1.4;">AI in the Classroom: GGC Professor Prepares Tomorrow's Teachers →</a>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light); margin-top: 0.5rem;">Georgia Gwinnett College News, July 2025</p>
+                </div>
+            </div>
+            <div class="stats-grid fade-in">
+                <div class="stat-card">
+                    <div class="stat-number">22+</div>
+                    <div class="stat-label">Years in Higher Ed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">18+</div>
+                    <div class="stat-label">Years Online Teaching</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Publications & Presentations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">AI Certifications</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="section-header">
+            <p class="section-label">Specializations</p>
+            <h2 class="section-title">Areas of Expertise</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">🤖</div>
+                <h3>AI in Education</h3>
+                <p>Investigating how artificial intelligence is transforming teacher preparation and K-12 learning environments. Certified in MagicSchool AI, Khanmigo, and Writing.io Academy.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon" style="background: linear-gradient(135deg, var(--color-teal), var(--color-emerald));">📊</div>
+                <h3>Academic Assessment</h3>
+                <p>Leading institution-wide academic assessment programs, developing ePortfolio initiatives, and implementing quality assurance practices aligned with SACSCOC standards.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon" style="background: linear-gradient(135deg, var(--color-coral), var(--color-pink));">💻</div>
+                <h3>Online Teaching</h3>
+                <p>Over 18 years pioneering online course development and delivery. Training faculty in educational technology integration and digital pedagogy best practices.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon" style="background: linear-gradient(135deg, #10b981, #06b6d4);">🔬</div>
+                <h3>Science Education</h3>
+                <p>Ph.D. in Curriculum and Instruction with specialization in science education. Background in biology, environmental science, and marine biology research.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon" style="background: linear-gradient(135deg, var(--color-purple), var(--color-pink));">👩‍🏫</div>
+                <h3>Teacher Preparation</h3>
+                <p>Preparing pre-service teachers for 21st-century classrooms through innovative technology integration, simulation training, and culturally responsive pedagogy.</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon" style="background: linear-gradient(135deg, var(--color-orange), var(--color-amber));">📚</div>
+                <h3>Curriculum Development</h3>
+                <p>Designing comprehensive educational programs including Online Teaching Endorsements, STEM endorsements, and graduate-level curricula for educator preparation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Workshop Section -->
+    <section class="workshop" id="workshop">
+        <div class="section-header" style="position: relative; z-index: 1;">
+            <p class="section-label" style="color: rgba(255,255,255,0.9); -webkit-text-fill-color: rgba(255,255,255,0.9);">Professional Development</p>
+            <h2 class="section-title" style="color: white;">AI Tools for College Professors</h2>
+            <div class="section-divider" style="background: linear-gradient(90deg, rgba(255,255,255,0.8), white, rgba(255,255,255,0.8));"></div>
+            <p style="color: rgba(255,255,255,0.9); margin-top: 1rem; font-size: 1.1rem;">Hands-On Training for AI Integration in Higher Education</p>
+        </div>
+        
+        <!-- Why AI in Education -->
+        <div style="max-width: 1100px; margin: 0 auto 3rem; position: relative; z-index: 1;">
+            <h3 style="color: white; font-family: var(--font-display); font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Why AI in Higher Education?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">⏰</div>
+                    <h4 style="color: white; margin-bottom: 0.5rem;">Save Time</h4>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;">Educators report saving 7-10 hours per week on planning, grading, and content creation</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                    <h4 style="color: white; margin-bottom: 0.5rem;">Personalize</h4>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;">Differentiate content instantly for diverse learners, reading levels, and languages</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💡</div>
+                    <h4 style="color: white; margin-bottom: 0.5rem;">Innovate</h4>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;">Create interactive experiences and new types of learning activities</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15 AI Tools Grid -->
+        <div style="max-width: 1200px; margin: 0 auto 3rem; position: relative; z-index: 1;">
+            <h3 style="color: white; font-family: var(--font-display); font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">15 Essential AI Tools</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                <a href="https://adobe.com/education/express" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎨</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Adobe Express</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Design & Graphics</p>
+                </a>
+                <a href="https://notebooklm.google" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📓</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">NotebookLM</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Research & Audio</p>
+                </a>
+                <a href="https://gemini.google.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✨</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Google Gemini</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Workspace Integration</p>
+                </a>
+                <a href="https://copilot.microsoft.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🪟</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">MS Copilot</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Microsoft 365</p>
+                </a>
+                <a href="https://perplexity.ai" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Perplexity</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Research + Citations</p>
+                </a>
+                <a href="https://schoolai.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏫</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">SchoolAI</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Custom AI Tutors</p>
+                </a>
+                <a href="https://claude.ai" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Claude AI</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Analysis & Writing</p>
+                </a>
+                <a href="https://chatgpt.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">ChatGPT</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Versatile Assistant</p>
+                </a>
+                <a href="https://magicschool.ai" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🪄</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">MagicSchool</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">80+ Edu Tools</p>
+                </a>
+                <a href="https://web.diffit.me" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📖</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Diffit</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Text Differentiation</p>
+                </a>
+                <a href="https://curipod.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎮</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Curipod</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Interactive Lessons</p>
+                </a>
+                <a href="https://padlet.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📌</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Padlet</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Collab Boards</p>
+                </a>
+                <a href="https://nearpod.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📝</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Nearpod</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">AI Question Gen</p>
+                </a>
+                <a href="https://quizlet.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎴</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Quizlet</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">Magic Notes</p>
+                </a>
+                <a href="https://quizizz.com" target="_blank" style="background: rgba(255,255,255,0.95); padding: 1.5rem 1rem; border-radius: 15px; text-align: center; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
+                    <h4 style="color: #1e3a5f; font-size: 0.95rem; margin-bottom: 0.3rem;">Quizizz</h4>
+                    <p style="color: #64748b; font-size: 0.8rem;">AI Quiz Actions</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tool Categories -->
+        <div style="max-width: 1100px; margin: 0 auto 3rem; position: relative; z-index: 1;">
+            <h3 style="color: white; font-family: var(--font-display); font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Tool Categories</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1.5rem;">
+                <!-- Category 1 -->
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="background: linear-gradient(135deg, #ec4899, #f472b6); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">1</span>
+                        <h4 style="color: white; font-size: 1.2rem;">Content Creation & Design</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 1rem; font-size: 0.95rem;"><strong>Adobe Express:</strong> AI-powered design for syllabi, infographics, videos</p>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;"><strong>Curipod:</strong> Interactive lesson slides with polls and real-time engagement</p>
+                    <p style="color: var(--color-accent-light); font-size: 0.85rem; margin-top: 1rem;">💡 Pro Tip: Start with templates, then customize with AI</p>
+                </div>
+                <!-- Category 2 -->
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="background: linear-gradient(135deg, #06b6d4, #22d3ee); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">2</span>
+                        <h4 style="color: white; font-size: 1.2rem;">Research & Analysis</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>NotebookLM:</strong> Upload docs, get AI analysis, create audio podcasts</p>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Perplexity AI:</strong> Real-time research with citations</p>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Claude AI:</strong> Deep analysis, case studies, nuanced writing</p>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;"><strong>ChatGPT:</strong> Versatile assistant for brainstorming & drafting</p>
+                    <p style="color: var(--color-accent-light); font-size: 0.85rem; margin-top: 1rem;">🎧 Try This: NotebookLM turns any docs into a podcast!</p>
+                </div>
+                <!-- Category 3 -->
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="background: linear-gradient(135deg, #10b981, #34d399); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">3</span>
+                        <h4 style="color: white; font-size: 1.2rem;">Lesson Planning & Differentiation</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>MagicSchool AI:</strong> 80+ tools for lesson plans, rubrics, IEPs</p>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Diffit:</strong> Adapt any text to multiple reading levels</p>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>SchoolAI:</strong> Create custom AI tutors for students</p>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;"><strong>Gemini + Copilot:</strong> Integrated lesson & rubric creation</p>
+                    <p style="color: var(--color-accent-light); font-size: 0.85rem; margin-top: 1rem;">⚡ Time Saver: MagicSchool creates a lesson plan in 60 seconds!</p>
+                </div>
+                <!-- Category 4 -->
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.15);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="background: linear-gradient(135deg, #f59e0b, #fbbf24); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">4</span>
+                        <h4 style="color: white; font-size: 1.2rem;">Interactive Assessment Tools</h4>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Padlet:</strong> AI creates collaborative boards from a prompt</p>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Nearpod:</strong> Auto-generate quiz questions from content</p>
+                    <p style="color: rgba(255,255,255,0.85); margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Quizlet:</strong> Transform notes into flashcards instantly</p>
+                    <p style="color: rgba(255,255,255,0.85); font-size: 0.95rem;"><strong>Quizizz:</strong> Differentiate quizzes, adjust difficulty</p>
+                    <p style="color: var(--color-accent-light); font-size: 0.85rem; margin-top: 1rem;">🎯 Student Favorite: Quizlet Magic Notes!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div style="max-width: 1100px; margin: 0 auto 3rem; position: relative; z-index: 1;">
+            <h3 style="color: white; font-family: var(--font-display); font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Best Practices for AI in Teaching</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem;">
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; display: flex; gap: 1rem; align-items: flex-start;">
+                    <span style="font-size: 1.5rem;">✓</span>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.3rem;">Start Small</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Pick ONE tool that addresses your biggest pain point. Master it before adding more.</p>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; display: flex; gap: 1rem; align-items: flex-start;">
+                    <span style="font-size: 1.5rem;">✓</span>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.3rem;">Always Review</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">AI makes mistakes. Always verify facts and edit outputs before sharing.</p>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; display: flex; gap: 1rem; align-items: flex-start;">
+                    <span style="font-size: 1.5rem;">✓</span>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.3rem;">Be Transparent</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Tell students how you're using AI. Model responsible use.</p>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; display: flex; gap: 1rem; align-items: flex-start;">
+                    <span style="font-size: 1.5rem;">⚠️</span>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.3rem;">Protect Privacy</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Never enter student names, IDs, or identifiable information into AI tools.</p>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; display: flex; gap: 1rem; align-items: flex-start;">
+                    <span style="font-size: 1.5rem;">⚠️</span>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.3rem;">Know Your Policies</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Check your institution's AI use policies. Develop clear course guidelines.</p>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; display: flex; gap: 1rem; align-items: flex-start;">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 0.3rem;">Iterate & Improve</h4>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">The best prompts come from practice. Save what works and refine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Resources -->
+        <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 1;">
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); border-radius: 24px; padding: 3rem; border: 1px solid rgba(255,255,255,0.25); text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: 1.5rem;">📚</div>
+                <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; color: white;">Workshop Resources</h3>
+                <p style="font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8; color: white;">
+                    Download the complete workshop materials including participant guides, presentation slides, and quick reference cards.
+                </p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <a href="AI_Tools_Participant_Guide.pdf" download style="display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: #1e3a5f; padding: 1rem 1.5rem; border-radius: 30px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">
+                        <span>📘</span> Participant Guide
+                    </a>
+                    <a href="AI_Tools_Presentation_InPerson.pdf" download style="display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: #1e3a5f; padding: 1rem 1.5rem; border-radius: 30px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">
+                        <span>📗</span> Presentation Slides
+                    </a>
+                    <a href="AI_Tools_Quick_Reference_1Page.pdf" download style="display: inline-flex; align-items: center; gap: 0.5rem; background: white; color: #1e3a5f; padding: 1rem 1.5rem; border-radius: 30px; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">
+                        <span>📋</span> Quick Reference
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- K-12 Science Teacher Resources Section -->
+    <section class="k12-resources" id="k12" style="background: linear-gradient(135deg, #10b981 0%, #06b6d4 30%, #6366f1 60%, #8b5cf6 100%); color: white; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 15% 85%, rgba(255,255,255,0.1) 0%, transparent 35%), radial-gradient(circle at 85% 15%, rgba(255,255,255,0.1) 0%, transparent 35%); pointer-events: none;"></div>
+        
+        <div class="section-header" style="position: relative; z-index: 1;">
+            <p class="section-label" style="color: rgba(255,255,255,0.9); -webkit-text-fill-color: rgba(255,255,255,0.9);">For Educators</p>
+            <h2 class="section-title" style="color: white;">K-12 Science Teacher Resources</h2>
+            <div class="section-divider" style="background: linear-gradient(90deg, rgba(255,255,255,0.8), white, rgba(255,255,255,0.8));"></div>
+        </div>
+        
+        <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 1;">
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); border-radius: 24px; padding: 3rem; border: 1px solid rgba(255,255,255,0.25); text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: 1.5rem;">🔬</div>
+                <h3 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem;">Comprehensive Science Teaching Hub</h3>
+                <p style="font-size: 1.1rem; opacity: 0.95; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+                    A complete collection of teacher resources for K-12 science education, featuring lesson plans, laboratory investigations, multimedia resources, assessments, and cultural connections aligned with state and national standards.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; text-align: left;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="background: linear-gradient(135deg, #10b981, #34d399); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🧪</span>
+                        <span style="font-size: 0.95rem;">Lab Investigations</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="background: linear-gradient(135deg, #06b6d4, #22d3ee); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📋</span>
+                        <span style="font-size: 0.95rem;">5E Lesson Plans</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="background: linear-gradient(135deg, #8b5cf6, #a78bfa); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📊</span>
+                        <span style="font-size: 0.95rem;">Standards Alignment</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="background: linear-gradient(135deg, #f59e0b, #fbbf24); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">🌍</span>
+                        <span style="font-size: 0.95rem;">Cultural Connections</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 2.5rem;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">Physics</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">Chemistry</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">Biology</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">Earth Science</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">Environmental Science</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">AP Courses</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">NGSS Aligned</span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem;">GSE Aligned</span>
+                </div>
+                
+                <a href="https://rcooper2005.github.io/K-12-Science-Teacher-Resources/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.75rem; background: white; color: #1e3a5f; padding: 1.2rem 2.5rem; border-radius: 30px; font-weight: 600; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <span>Access Science Resources</span>
+                    <span style="font-size: 1.3rem;">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publications">
+        <div class="section-header">
+            <p class="section-label">Scholarship</p>
+            <h2 class="section-title">Selected Publications & Presentations</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="publications-container">
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-accent);">Publications</h3>
+            <a href="https://www.learntechlib.org/primary/p/2128644/" target="_blank" rel="noopener noreferrer" class="publication-item fade-in" style="text-decoration: none; display: block; cursor: pointer;">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">Teaching in the Age of AI: Pre-Service Educators' Evolving Perspectives for Professional Development and Learning</h4>
+                <p class="publication-journal">Proceedings of eLearn 2025 World Conference on EdTech Since 1996, AACE</p>
+            </a>
+            <a href="https://issuu.com/gaate/docs/georgia_association_of_teacher_educators_vol.34_is" target="_blank" rel="noopener noreferrer" class="publication-item fade-in" style="text-decoration: none; display: block; cursor: pointer;">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">Friend or Foe: Pre-Service Teachers' Perceptions of AI</h4>
+                <p class="publication-journal">Gateways, 34(2), 40-58</p>
+            </a>
+            <a href="https://www.campbellsville.edu/academics/academic-affairs/journal-of-advances-in-education/" target="_blank" rel="noopener noreferrer" class="publication-item fade-in" style="text-decoration: none; display: block; cursor: pointer;">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">An Evolution of Research on Online Teaching and Learning: Preparing Preservice Teachers for the New Digital Classroom</h4>
+                <p class="publication-journal">Journal of Advances in Education, 1(1), 5-30</p>
+            </a>
+            <a href="https://doi.org/10.29173/ijll44" target="_blank" rel="noopener noreferrer" class="publication-item fade-in" style="text-decoration: none; display: block; cursor: pointer;">
+                <div class="publication-year">2024</div>
+                <h4 class="publication-title">Preservice Teachers Learning to Teach Online: Developing Teacher Leaders</h4>
+                <p class="publication-journal">International Journal for Leadership in Learning, 24(1), 36-58</p>
+            </a>
+            <div class="publication-item fade-in">
+                <div class="publication-year">2021</div>
+                <h4 class="publication-title">Getting to Portfolios Through Assessment: A Process Model for Integrating ePortfolio Concepts Through Training for Program Assessment</h4>
+                <p class="publication-journal">Journal of Higher Education Theory and Practice, 21(7), 44-55</p>
+            </div>
+            <a href="https://www.learntechlib.org/p/209810/" target="_blank" rel="noopener noreferrer" class="publication-item fade-in" style="text-decoration: none; display: block; cursor: pointer;">
+                <div class="publication-year">2020</div>
+                <h4 class="publication-title">Preparing Teacher Candidates to Teach Online: A Case Study of One College's Design and Implementation Plan</h4>
+                <p class="publication-journal">International Journal on E-Learning, 19(2), 125-137</p>
+            </a>
+            
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; color: var(--color-primary); margin: 2.5rem 0 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-accent);">Selected Presentations</h3>
+            <div class="publication-item fade-in">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">Teaching in the Age of AI: Preservice Educators' Evolving Perspectives for Professional Development and Learning</h4>
+                <p class="publication-journal">eLearn 2025 World Conference on EdTech • Bangkok, Thailand</p>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">Preparing Preservice Teachers for the New Digital Classroom: Tools of the Trade</h4>
+                <p class="publication-journal">Kennesaw State University Scholarship of Teaching and Learning Summit</p>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">Taking ePortfolios to Scale: Recounting Georgia Gwinnett College's Cross-Functional Initiatives</h4>
+                <p class="publication-journal">AAC&U Forum on Digital Innovation • San Juan, Puerto Rico</p>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-year">2025</div>
+                <h4 class="publication-title">Preservice Teacher's Perspective on AI: A Pilot Study</h4>
+                <p class="publication-journal">Georgia Gwinnett College Teaching, Learning, and Research Symposium</p>
+            </div>
+            <div class="publication-item fade-in">
+                <div class="publication-year">2024</div>
+                <h4 class="publication-title">An Evolution of Preparing Preservice Teachers to Teach Students with Disabilities Online</h4>
+                <p class="publication-journal">International Association of Special Education • Prague, Czech Republic</p>
+            </div>
+        </div>
+        <div class="view-all-link fade-in">
+            <a href="Rebecca_Cooper_CV_2025.pdf" class="btn btn-primary" download>Download Full CV</a>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="awards">
+        <div class="section-header">
+            <p class="section-label">Recognition</p>
+            <h2 class="section-title">Awards & Honors</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="awards-grid">
+            <div class="award-card fade-in">
+                <div class="award-icon">🎓</div>
+                <div class="award-content">
+                    <h4>Governor's Teaching Fellowship</h4>
+                    <p>University System of Georgia, 2025</p>
+                </div>
+            </div>
+            <div class="award-card fade-in">
+                <div class="award-icon">⭐</div>
+                <div class="award-content">
+                    <h4>Outstanding Faculty Service Award</h4>
+                    <p>Georgia Gwinnett College, 2025</p>
+                </div>
+            </div>
+            <div class="award-card fade-in">
+                <div class="award-icon">🏆</div>
+                <div class="award-content">
+                    <h4>Faculty Top Claw Award</h4>
+                    <p>Georgia Gwinnett College, 2025</p>
+                </div>
+            </div>
+            <div class="award-card fade-in">
+                <div class="award-icon">📱</div>
+                <div class="award-content">
+                    <h4>D2L Excellence Award</h4>
+                    <p>2023</p>
+                </div>
+            </div>
+            <div class="award-card fade-in">
+                <div class="award-icon">🌟</div>
+                <div class="award-content">
+                    <h4>Outstanding Faculty Mentoring Award</h4>
+                    <p>Georgia Gwinnett College, 2022</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nominations -->
+        <div class="nominations-box fade-in">
+            <h3>Notable Nominations</h3>
+            <div class="nomination-tags">
+                <span class="nomination-tag">ISTE Award 2024</span>
+                <span class="nomination-tag">GATE Research Award 2023</span>
+                <span class="nomination-tag">Outstanding Faculty Engagement 2025</span>
+                <span class="nomination-tag">Faculty Adviser of the Year 2025</span>
+                <span class="nomination-tag">Outstanding Faculty Service 2023</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="section-header">
+            <p class="section-label">Professional Development</p>
+            <h2 class="section-title">AI Certifications</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="cert-grid">
+            <div class="cert-card fade-in">
+                <div class="cert-icon">🎓</div>
+                <div>
+                    <h4>MagicSchool AI Certified Educator</h4>
+                    <p>Levels 1, 2 & 3 • 2024</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon">🖼️</div>
+                <div>
+                    <h4>MagicSchool AI Image Generator</h4>
+                    <p>Certification • 2024</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon">🤖</div>
+                <div>
+                    <h4>Khanmigo for Educators</h4>
+                    <p>Khan Academy • 2024</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon">✍️</div>
+                <div>
+                    <h4>Writing.io Academy AI Course</h4>
+                    <p>Certification • 2024</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon">🔬</div>
+                <div>
+                    <h4>Quizizz Science Innovator</h4>
+                    <p>Certification for Science • 2024</p>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-icon">📚</div>
+                <div>
+                    <h4>USG Online Course Design Studio</h4>
+                    <p>University System of Georgia • 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header" style="position: relative; z-index: 1;">
+            <p class="section-label">Connect</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="contact-content fade-in">
+            <p>Interested in collaboration, speaking engagements, or professional development workshops? I'd love to hear from you.</p>
+            <a href="mailto:rcooper5@ggc.edu" class="contact-email">rcooper5@ggc.edu</a>
+            <div class="contact-info">
+                <p><strong>Georgia Gwinnett College</strong></p>
+                <p>School of Education</p>
+                <p>Lawrenceville, GA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dr. Rebecca Cooper. All rights reserved.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
